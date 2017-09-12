@@ -18,10 +18,10 @@ namespace Tyrrrz.AspNetCore.Mvc.Clicky.TagHelpers
         public bool Enabled { get; set; } = true;
 
         /// <summary>
-        /// Site short name
+        /// Site ID
         /// </summary>
-        [HtmlAttributeName("site-id")]
-        public string SiteId { get; set; }
+        [HtmlAttributeName("site")]
+        public string Site { get; set; }
 
         /// <inheritdoc />
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -32,7 +32,7 @@ namespace Tyrrrz.AspNetCore.Mvc.Clicky.TagHelpers
                 throw new ArgumentNullException(nameof(output));
 
             // Validate attributes
-            if (string.IsNullOrWhiteSpace(SiteId))
+            if (string.IsNullOrWhiteSpace(Site))
                 throw new ArgumentException("SiteId attribute must be set");
 
             // Return if not enabled
@@ -44,7 +44,7 @@ namespace Tyrrrz.AspNetCore.Mvc.Clicky.TagHelpers
 
             // Format the content
             var content = TemplateHtml;
-            content = content.Replace("__SiteId__", SiteId);
+            content = content.Replace("__Site__", Site);
 
             // Output
             output.TagName = null;

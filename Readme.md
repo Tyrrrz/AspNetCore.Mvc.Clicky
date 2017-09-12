@@ -15,8 +15,8 @@ Make the tag helper available with the `addTagHelper` directive either in your v
 ```
 
 Use the tag helper to render the tracker.
-You will need to specify the `site-id` attribute, which you can find in site preferences on your Clicky dashboard.
+You will need to specify the `site` attribute, which is the site ID that you can find in site preferences on your Clicky dashboard.
 
 ```html
-<clicky site-id="075468937" />
+<clicky site="075468937" />
 ```
